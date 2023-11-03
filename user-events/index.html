@@ -12,10 +12,15 @@
         const vm =  Vue.createApp({
             data() {
                 return {
-                    text: "<p>Hola vue</p>"
+                 counter: 0
                 }
                 },
-                template: `<div v-html="text"></div>`
+                methods:{
+                   submit(){
+                     this.counter++;
+                    }
+                },
+                template: `<form v-on:submit="submit.prevent.stop"><button >{{ counter }}</button></form>`
         }).mount("#app");
         console.log(vm)
     </script>
