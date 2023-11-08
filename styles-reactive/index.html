@@ -38,6 +38,15 @@
             width: 100px;
         }
 
+        input {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 1px 1px 1px gray;
+            font-size: 20px;
+            padding: 5px;
+            margin-top: 4px;
+        }
+
         .closed {
             background-color: #eca1a6;
         }
@@ -52,28 +61,44 @@
             data() {
                 return {
                     text: "Puerta Cerrada",
-                    open: false
+                    open: false,
+                    username: ""
                 }
             },
             watch: {
                 open(value) {
                     if (value) {
-                        this.text = "Puerta Abierta";
+                        this.text = "Cierra sesión";
                     } else {
-                        this.text = "Puerta Cerrada";
+                        this.text = "Accede a tu cuenta";
+                        this.username = ""
                     }
                 }
             },
             computed: {
                 label() {
-                    return this.open ? "Cerrar" : "Abrir";
+                    return this.open ? "Salir" : "Acceder";
+                },
+                styles() {
+                    return this.open ? ['open'] : ['closed'];
                 }
             },
             template: `
-             <div class="container" :class="{'open': open, 'closed': !open}">
+            <div class="container" :class="styles">
                 <h2>{{ text }}</h2>
-             <button @click="open = !open">{{ label }}</button>
-             </div>`
+                <div v-if="open">
+                    <p>Hola, {{ username }}</p>
+                </div>
+                <div v-else>
+                    <div>Username</div>
+                    <input type="text" v-model="username" />    
+                </div>
+                <button @click="open = !open">
+                    <div v-if="!open">Acceder</div>
+                    <div v-else>Salir</div>
+                </button>
+            </div>
+            `
         }).mount("#app");
         console.log(vm)
     </script>
