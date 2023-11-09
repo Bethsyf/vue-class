@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script src="https://unpkg.com/vue@next"></script>
     <div id="app"></div>
     <script>
-        const vm =  Vue.createApp({
+        const vm = Vue.createApp({
             data() {
                 return {
-                   firstName: "Diana",
-                   lastName: "Martinez",
-                   now: new Date()
+                    firstName: "Bethsy",
+                    lastName: "Falcon",
+                    now: new Date()
                 }
-                }, 
-                computed: {
-                    fullName(){
-                        return this.firstName + ' ' + this.lastName
-                    }
-                },            
-                template: `
+            },
+            computed: {
+                fullName() {
+                    return this.firstName + ' ' + this.lastName
+                }
+            },
+            template: `
                <div>{{ fullName }}</div>
                <div>{{ now.toLocaleDateString() }}</div>
                 `
@@ -30,4 +32,5 @@
         console.log(vm)
     </script>
 </body>
+
 </html>
