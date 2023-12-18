@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app"></div>
+    <script>
+        const vm =  Vue.createApp({
+            data() {
+                return {
+                    attr: "src", 
+                    img: "https://th.bing.com/th?id=OIP.SPKlAxSi9--5glOc-q8EUgHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+                }
+                },
+                template: `<img v-bind:[attr]="img" />`
+        }).mount("#app");
+        console.log(vm)
+    </script>
+</body>
+</html>
