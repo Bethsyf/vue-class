@@ -14,18 +14,13 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    text: "hola Vue"
-                }
-            },
-            methods: {
-                input(e) {
-                    this.text = e.target.value;
+                    text: "Hola Vue"
                 }
             },
             template: `
                 <div>
                     <p>{{ text }}</p>
-                    <v-input v-bind:value="text" v-on:input="input"/>
+                    <v-input v-model:value="text"/>
                 </div>
             
             `
@@ -37,7 +32,7 @@
             },
             methods: {
                 input(e) {
-                    this.$emit("", e.target.value)
+                    this.$emit("update:value", e.target.value)
                 }
             },
             template: `<input type="text" v-bind:value="value" v-on:input="input" />`
