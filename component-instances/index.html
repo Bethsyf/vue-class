@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+    <div id="app"></div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    text: 'Hello Vue!'
+                }
+            },
+            template: `
+            <v-button ref="element" :label="text"></v-button>
+            `
+        });
+
+        app.component("v-button", {
+            props: ["label"],
+            template: `
+            <button >{{ label }}</button>
+            `
+        })
+
+        const vm = app.mount("#app")
+        console.log(vm.$props)
+    </script>
+</body>
+
+</html>
