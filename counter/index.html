@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
     <div id="app"></div>
     <script>
-        const vm =  Vue.createApp({
+        const vm = Vue.createApp({
             data() {
                 return {
-                 counter: 0
+                    counter: 0
                 }
-                },
-                methods: {
+            },
+            methods: {
                 increment() {
                     this.counter++;
                 },
@@ -23,9 +25,10 @@
                     this.counter--;
                 }
             },
-                template: ` <button @click="increment">+</button><span>{{ counter }}</span><button @click="decrement">-</button>`
+            template: ` <button @click="increment">+</button><span>{{ counter }}</span><button @click="decrement">-</button>`
         }).mount("#app");
         console.log(vm)
     </script>
 </body>
+
 </html>
